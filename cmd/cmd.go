@@ -18,7 +18,9 @@ var (
 		Run: func(cmd *cobra.Command, args []string) {
 			s, _ := json.Marshal(viper.AllSettings())
 			log.Printf("cfgFile info: %s", s)
-			cfgViper = viper.GetViper()
+
+			// 启动服务
+			ServiceStart(viper.GetViper())
 		},
 	}
 )
@@ -35,9 +37,13 @@ func init() {
 
 // Execute 执行任务
 func Execute() error {
-	return rootCmd.Execute()
+	err := rootCmd.Execute()
+	return err
 }
 
 func GetConfigViper() *viper.Viper {
+	if cfgViper == nil {
+		log.Fatalf("config viper is nil")
+	}
 	return cfgViper
 }
