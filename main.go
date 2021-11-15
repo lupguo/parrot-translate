@@ -4,13 +4,13 @@ import (
 	"log"
 
 	"github.com/labstack/echo/v4"
-	"parrot-translate/app/application"
-	"parrot-translate/app/domain/service"
-	"parrot-translate/app/handler"
-	"parrot-translate/app/infrastruct/cache"
-	"parrot-translate/app/infrastruct/translate"
-	"parrot-translate/cmd"
-	"parrot-translate/middleware"
+	"github.com/lupguo/parrot-translate/app/application"
+	"github.com/lupguo/parrot-translate/app/domain/service"
+	"github.com/lupguo/parrot-translate/app/handler"
+	"github.com/lupguo/parrot-translate/app/infrastruct/cache"
+	"github.com/lupguo/parrot-translate/app/infrastruct/translate"
+	"github.com/lupguo/parrot-translate/cmd"
+	"github.com/lupguo/parrot-translate/middleware"
 )
 
 func main() {

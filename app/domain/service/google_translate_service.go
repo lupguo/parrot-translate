@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"parrot-translate/app/domain/repository"
+	"github.com/lupguo/parrot-translate/app/domain/repository"
 )
 
 type ITranslateService interface {

@@ -3,10 +3,10 @@ package application
 import (
 	"context"
 
-	"parrot-translate/app/domain/entity"
-	"parrot-translate/app/domain/repository"
-	"parrot-translate/app/domain/service"
-	"parrot-translate/pkg/trans"
+	"github.com/lupguo/parrot-translate/app/domain/entity"
+	"github.com/lupguo/parrot-translate/app/domain/repository"
+	"github.com/lupguo/parrot-translate/app/domain/service"
+	"github.com/lupguo/parrot-translate/pkg/trans"
 )
 
 type TranslateApp struct {

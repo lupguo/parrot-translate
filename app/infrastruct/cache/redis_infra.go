@@ -2,7 +2,7 @@ package cache
 
 import (
 	"github.com/go-redis/redis/v8"
-	"parrot-translate/pkg/rdshand"
+	"github.com/lupguo/parrot-translate/pkg/rdshand"
 )
 
 // RedisInfra 通过redis实现，Redis的基础设施接口

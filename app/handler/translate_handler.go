@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v4"
-	"parrot-translate/app/application"
+	"github.com/lupguo/parrot-translate/app/application"
 )
 
 type TranslateHandler struct {
