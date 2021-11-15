@@ -4,7 +4,7 @@
 
 ## 安装
 ```shell
-go get -u github.com/lupguo/parrot-translate
+go get -u -v github.com/lupguo/parrot-translate
 ```
 
 ## 应用配置文件

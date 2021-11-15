@@ -1,4 +1,4 @@
-module parrot-translate
+module github.com/lupguo/parrot-translate
 
 go 1.16
 
