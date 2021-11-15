@@ -1,14 +1,24 @@
 package service
 
-type ITranslate interface {
+import (
+	"context"
+
+	"parrot-translate/app/domain/repository"
+)
+
+type ITranslateService interface {
 	// TranslateText 将text从sourceLang翻译成targetLang，返回值为翻译结果，有错直接返回
-	TranslateText(sourceLang string, targetLang string, text string) (string, error)
+	TranslateText(ctx context.Context, srcLang string, toLang string, srcText string) (toText string, err error)
 }
 
 type GoogleTranslateService struct {
-
+	repos repository.ITranslateRepos
 }
 
-func (g *GoogleTranslateService) TranslateText(sourceLang string, targetLang string, text string) (string, error) {
-	panic("implement me")
+func NewGoogleTranslateService(repos repository.ITranslateRepos) *GoogleTranslateService {
+	return &GoogleTranslateService{repos: repos}
+}
+
+func (g *GoogleTranslateService) TranslateText(ctx context.Context, srcLang string, toLang string, srcText string) (toText string, err error) {
+	return g.repos.GoogleTranslateText(ctx, srcLang, toLang, srcText)
 }
