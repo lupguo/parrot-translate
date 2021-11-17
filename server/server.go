@@ -1,4 +1,4 @@
-package cmd
+package server
 
 import (
 	"github.com/labstack/echo/v4"
@@ -11,10 +11,10 @@ import (
 	"github.com/spf13/viper"
 )
 
-func ServiceStart(cfg *viper.Viper) {
+func Start(vc *viper.Viper) {
 	// 依赖基础设施初始化
-	projectID := cfg.GetString("api.google.proj_id")
-	jsonPath := cfg.GetString("api.google.auth_file")
+	projectID := vc.GetString("api.google.proj_id")
+	jsonPath := vc.GetString("api.google.auth_file")
 	redisInfra := cache.NewRedisInfra()
 	googleHTTPTranslateInfra := translate.NewGoogleTranslateInfra(projectID, jsonPath)
 
@@ -34,8 +34,8 @@ func ServiceStart(cfg *viper.Viper) {
 	e.Static("/static", "static")
 
 	// 通用中间件配置
-	e.Use(middleware.BasicMiddlewares...)
+	middleware.InitConfig(e, vc)
 
 	// 服务启动
-	e.Logger.Fatal(e.Start(cfg.GetString("server.listen")))
+	e.Logger.Fatal(e.Start(vc.GetString("server.listen")))
 }
